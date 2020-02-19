@@ -1,0 +1,51 @@
+#' is shorthand for "Get me the function with the following name."
+it can be replaced by the word function.
+
+function with key params
+(defun foo (&key a b c) (list a b c))
+(foo :a 1 :c 3)       ==> (1 NIL 3)
+
+function with key default values
+(defun foo (&key a (b 20) (c 30 c-p)) (list a b c c-p))
+(foo :a 1 :b 2 :c 3)  ==> (1 2 3 T)
+
+function with variable length params
+(defun foo (&rest args) (xxxxx))
+
+function with optional values
+(defun foo (a b &optional c d) (list a b c d))
+
+return from a function
+(RETURN-FROM function-name result)
+
+' (quote) tells to not evaluate following expression
+` (backquote) is like quote except we can use
+  , to evaluate an expression
+  ,@ to evaluate and splice the result in the enclosing list
+
+See the result of a macro
+(macroexpand-1)
+
+:toto keyword symbol
+
+associative list
+(getf (list :a 1 :b 2 :c 3) :a) ==> 3
+
+global variable
+(defvar *db* nil)
+
+adds elements to a list
+(push el list)
+
+Applying a function
+(funcall #'foo 1 2 3)
+(apply #'foo args)
+
+Binding values
+(let
+  ((a 1) (b 2))
+  (body)
+)
+
+Let for functions
+(labels (()))
